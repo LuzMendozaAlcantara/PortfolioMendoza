@@ -1,0 +1,225 @@
+/* ---------------------------------------------------------
+   Design tokens
+   Paleta: degradé rosa / celeste / lila con superficies
+   glassmorphic (vidrio esmerilado) sobre un fondo tipo
+   "mesh gradient" animado.
+--------------------------------------------------------- */
+:root {
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Fondo */
+  --bg-pink: #ffd9ec;
+  --bg-blue: #cfeeff;
+  --bg-lilac: #e7dcff;
+
+  /* Acentos */
+  --accent-purple: #9b7bf0;
+  --accent-pink: #f472b6;
+  --accent-blue: #5cc8f2;
+
+  /* Texto */
+  --ink: #2c2740;
+  --ink-soft: #5c5570;
+  --ink-faint: #85809a;
+
+  /* Vidrio */
+  --glass-bg: rgba(255, 255, 255, 0.38);
+  --glass-bg-strong: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 8px 32px rgba(90, 60, 140, 0.14);
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --radius-pill: 999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: linear-gradient(
+    135deg,
+    var(--bg-pink) 0%,
+    var(--bg-lilac) 45%,
+    var(--bg-blue) 100%
+  );
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Blobs de fondo animados: dan el efecto "mesh gradient" detrás del vidrio */
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-blobs span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  animation: float 22s ease-in-out infinite;
+}
+
+.bg-blobs span:nth-child(1) {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  left: -100px;
+  background: var(--accent-pink);
+  animation-delay: 0s;
+}
+
+.bg-blobs span:nth-child(2) {
+  width: 480px;
+  height: 480px;
+  top: 30%;
+  right: -160px;
+  background: var(--accent-blue);
+  animation-delay: -7s;
+}
+
+.bg-blobs span:nth-child(3) {
+  width: 380px;
+  height: 380px;
+  bottom: -140px;
+  left: 20%;
+  background: var(--accent-purple);
+  animation-delay: -14s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, 40px) scale(1.08); }
+  66% { transform: translate(-25px, -20px) scale(0.95); }
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+section {
+  position: relative;
+  padding: 6rem 1.5rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------------
+   Utilidades glassmorphic reutilizables
+----------------------------------------------------------- */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.pill {
+  border-radius: var(--radius-pill);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 3px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+  box-shadow: 0 10px 24px rgba(155, 123, 240, 0.35);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 14px 30px rgba(155, 123, 240, 0.45);
+}
+
+.btn-glass {
+  color: var(--ink);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bg-blobs span {
+    animation: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
+}

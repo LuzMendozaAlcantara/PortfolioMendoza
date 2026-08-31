@@ -1,0 +1,126 @@
+.wrap {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.25rem;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem 0.65rem 1.35rem;
+  border-radius: var(--radius-pill);
+}
+
+.brand {
+  font-family: "Niconne", cursive;
+  font-size: 2.2rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  background-image: linear-gradient(
+    100deg,
+    var(--accent-pink),
+    var(--accent-purple) 55%,
+    var(--accent-blue)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brandDot {
+  color: var(--accent-pink);
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.links button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.links button:hover,
+.links button:focus-visible {
+  background: var(--glass-bg-strong);
+  color: var(--ink);
+}
+
+.toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+
+.mobileMenu {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0.75rem;
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--radius-md);
+  display: none;
+}
+
+.mobileMenu button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.mobileMenu button:hover {
+  background: var(--glass-bg-strong);
+}
+
+@media (max-width: 640px) {
+  .links {
+    display: none;
+  }
+  .toggle {
+    display: flex;
+  }
+  .mobileMenu {
+    display: block;
+  }
+}

@@ -1,0 +1,54 @@
+.hero {
+  padding-top: 9rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  padding: 3.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+}
+
+.card h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.bio {
+  max-width: 620px;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+.stack {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.stack li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 2.5rem 1.5rem;
+  }
+}
