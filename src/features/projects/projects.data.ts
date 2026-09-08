@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
       "Proyecto grupal de desarrollo web sobre primeros auxilios, presentado a empresas de la red de la Fundación Forge. Mi trabajo fue la gestión de la base de datos de cada caso de emergencia mediante Postman, el diseño y maquetado de las cards en la página principal, y la creación de vistas individuales interactivas para cada caso, garantizando una experiencia de usuario sencilla y de fácil acceso, con un diseño visual consistente.",
     tags: ["Trabajo en equipo", "Postman", "UI/UX"],
     previewUrl: "vitalink.app",
-    imageSrc: "public/projects/vitalink.png",
+    imageSrc: "public/vitalink.png",
     githubUrl: "https://github.com/LuzMendozaAlcantara/Vitalink",
     demoUrl: "https://grupo4-proyecto-final-client.vercel.app/",
   },

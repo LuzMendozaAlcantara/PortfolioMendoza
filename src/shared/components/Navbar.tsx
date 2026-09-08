@@ -11,8 +11,6 @@ const NAV_ITEMS: NavItem[] = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  // Cierra el menú mobile al cambiar el tamaño de pantalla a desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 640) setIsOpen(false);
